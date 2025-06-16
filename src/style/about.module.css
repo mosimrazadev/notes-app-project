@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    height: 80vh;
+    width: 95vw;
+    background-color: #edf0f5;
+    border-radius: 2vh;
+    position: relative;
+    top: 5vh;
+    left: 5vh;
+}
+
+.profile{
+    height: 30vh;
+    width: 30vh;
+    position: absolute;
+    left: 5vh;
+    top: 24vh;
+    border-radius: 50%;
+    border: solid 5px #2ab8f5;
+}
+
+.content{
+    position: absolute;
+    left: 45vh;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.myself{
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 10vh;
+}
+
+.name{
+    color: #2ab8f5;
+}
+
+.intro{
+  position: absolute;
+  top: 25vh;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.about_work{
+  position: absolute;
+  top: 40vh;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.about_intrest{
+    position: relative;
+    top: 50vh;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.download_button{
+  position: absolute;
+  top: 65vh;
+  height: 2.5rem;
+  width: 18vw;
+  background-color: #2ab8f5;
+  color: #fff;
+  border: none;
+  border-radius: 1vh;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.download_button:hover{
+  border-radius: 4vh;
+  transition: all 0.2s ease-in-out;
+}

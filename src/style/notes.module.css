@@ -1,0 +1,92 @@
+.dialog{
+    position: fixed;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.dialog_content{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+
+    position: relative;
+}
+
+.dialog_content .close_button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dialog_content .form{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dialog_content .form input, textarea{
+    padding: 5px;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+.dialog_content .form button{
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.note {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: relative;
+  }
+  
+  .note h1 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .navbar{
+    color: #333;
+    padding: 10px 20px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar button{
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navbar button:hover{
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+}

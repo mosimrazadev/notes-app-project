@@ -1,0 +1,36 @@
+.navbar{
+    background-color: #48de6b;
+    color: #252525;
+    font-weight: bold;
+    padding: 10px 25px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.header_icon{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header_icon svg{
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+}
+
+
+.navbar a{
+  color: #252525;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+}
+
+.navbar a:hover{
+  text-decoration: underline;
+}
