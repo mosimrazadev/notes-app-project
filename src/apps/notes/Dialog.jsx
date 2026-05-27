@@ -1,49 +1,58 @@
-import React from 'react'
-import styles from "../../style/notes.module.css"
-import { useState } from 'react'
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import styles from "../../styles/notes.module.css";
 
-const Dialog = ({notes, addNote, show, onClose}) => {
-    
-    const [form, setForm] = useState({title: "", message: ""});
-    const [error, setError] = useState("");
+const Dialog = ({ editNote, updateNote, addNote, show, onClose }) => {
+  const [form, setForm] = useState({
+    title: "",
+    message: "",
+  });
 
-    const handleInput = (e) => {
-      const eleName = e.target.name;
-      const value = e.target.value;
+  const handleInput = (e) => {
+    const eleName = e.target.name;
+    const value = e.target.value;
 
-      setForm({...form, [eleName] : value});
+    setForm({ ...form, [eleName]: value });
+  };
+
+  const handleSubmit = () => {
+    if (editNote) {
+      updateNote(form);
+    } else {
+      addNote({ ...form, id: Date.now() });
     }
+    setForm({ title: "", message: "" });
+    onClose();
+  };
 
-
-    const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if(!form.title || !form.message){
-        setError("Please fill all the fields");
-        return;
+  useEffect(() => {
+    if (editNote) {
+      setForm(editNote);
+    } else {
+      setForm({ title: "", message: "" });
     }
-
-    addNote([...notes, form]);
-    setForm({title: "", message: ""});
-    setError("");
-    }
+  }, [editNote]);
 
   return (
-    <div className={styles.dialog} style={{opacity: show? 1 : 0, visibility: show? "visible" : "hidden"}} onClick={onClose}>
-        <div className={styles.dialog_content} onClick={(e) => e.stopPropagation()}>
-          <h1>Add Note</h1>
-
-          <div className={styles.form}>
-            <input value={form.title} onChange={handleInput} name='title' type='text' placeholder='Title' />
-            <textarea value={form.message} onChange={handleInput} name='message' type='text' placeholder='Message'/>
-            <button onClick={handleSubmit}>Save</button>
-          </div>
-
-        <button className={styles.close_button} onClick={onClose}>X</button>
-        {error}
+    <div
+      onClick={onClose}
+      className={styles.dialog}
+      style={{ opacity: show ? 1 : 0, visibility: show ? "visible" : "hidden" }}
+    >
+      <div className={styles.dialog_content} onClick={(e) => e.stopPropagation()}>
+        <h1>{editNote ? "Edit" : "Add"} Note</h1>
+        <div className={styles.form}>
+          <input name="title" type="text" value={form.title} onChange={handleInput} placeholder="Title" />
+          <textarea name="message" value={form.message} onChange={handleInput} placeholder="Message" />
+          <button onClick={handleSubmit}>{editNote ? "Update" : "Save"}</button>
         </div>
+        <button className={styles.close_button} onClick={onClose}>
+          X
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dialog
+export default Dialog;

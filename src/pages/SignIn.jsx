@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/auth.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../context/auth-context";
 
-const SignUp = () => {
+const SignIn = () => {
   const navigate = useNavigate();
+  const { setCurrentUser } = useContext(authContext);
   const [error, setError] = React.useState("");
   const [form, setForm] = React.useState({
-    name: "sandeep",
     username: "sandeep",
     password: "hola",
-    confirm_password: "hola",
   });
 
   const handleInput = (e) => {
@@ -23,18 +23,13 @@ const SignUp = () => {
     e.preventDefault();
     setError("");
 
-    if (!form.name || !form.username || !form.password || !form.confirm_password) {
+    if (form.username === "" || form.password === "") {
       setError("Please fill all the fields");
       return;
     }
 
-    if (form.password !== form.confirm_password) {
-      setError("Password does not match!");
-      return;
-    }
-
     try {
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,49 +40,39 @@ const SignUp = () => {
       const data = await res.json();
 
       if (!data.success) {
-        setError(data.message || "Sign Up failed");
+        setError(data.message || "Login failed");
         return;
       }
 
-      setForm({
-        name: "",
-        username: "",
-        password: "",
-        confirm_password: "",
+      setCurrentUser({
+        id: data.data._id,
+        name: data.data.name,
+        username: data.data.username,
       });
-
-      navigate("/signin");
+      setForm({ username: "", password: "" });
+      navigate("/");
     } catch (error) {
-      console.error("Sign Up error:", error);
+      console.error("Login error:", error);
       setError("Something went wrong!");
-      return;
     }
   };
 
   return (
     <div className={styles.auth_container}>
       <div className={styles.auth_form}>
-        <h1>Sign Up</h1>
+        <h1>Sign In</h1>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Name" value={form.name} onChange={handleInput} />
           <input type="text" name="username" placeholder="Username" value={form.username} onChange={handleInput} />
           <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleInput} />
-          <input
-            type="password"
-            name="confirm_password"
-            placeholder="Confirm Password"
-            value={form.confirm_password}
-            onChange={handleInput}
-          />
-          <button>Sign Up</button>
+          <button>Sign In</button>
           {error && <span className={styles.error_msg}>{error}</span>}
         </form>
         <p>
-          Already have an account <Link to="/signin">SignIn</Link>
+          Don't have an account <Link to="/signup">SignUp</Link>
         </p>
       </div>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;

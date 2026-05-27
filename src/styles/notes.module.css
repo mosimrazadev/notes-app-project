@@ -1,0 +1,128 @@
+.notes {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
+}
+
+.notes button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dialog {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.dialog_content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+
+  width: 400px;
+  position: relative;
+  /* z-index: 10000; */
+}
+
+.dialog_content .close_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: transparent;
+  color: black;
+}
+
+.dialog_content .form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dialog_content .form input,
+.dialog_content .form textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.dialog_content .form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.notes_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.note {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: relative;
+}
+
+.note h1 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.line_clamp_3 {
+  line-clamp: 3;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.note svg {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 20px;
+}
+
+.note svg:nth-of-type(1) {
+  right: 40px;
+}
+
+.note svg:last-of-type:hover {
+  color: red;
+}

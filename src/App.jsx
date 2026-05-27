@@ -1,31 +1,37 @@
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Notes from './apps/notes/Notes'
-import Navbar from './components/Navbar'
-import SignUp from './pages/SignUp'
-import LogIn from './pages/LogIn'
-import AuthProvider from './context/auth-context'
+import "./App.css";
+import Notes from "./apps/notes/Notes";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Navbar from "./components/Navbar";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import AuthProvider from "./context/auth-context";
+import Todos from "./apps/todos/Todos";
+import TodosProvider from "./context/todos-context";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <>
     <BrowserRouter>
       <AuthProvider>
-      <Navbar/>
-       <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/notes' element={<Notes/>}/>
+        <TodosProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/notes" element={<Notes />} />
+            <Route path="/todos" element={<Todos />} />
 
-          <Route path='/login' element={<LogIn/>}/>
-          <Route path='/signup' element={<SignUp/>}/>
-       </Routes>
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </TodosProvider>
       </AuthProvider>
     </BrowserRouter>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
