@@ -8,8 +8,8 @@ const SignIn = () => {
   const { setCurrentUser } = useContext(authContext);
   const [error, setError] = React.useState("");
   const [form, setForm] = React.useState({
-    username: "sandeep",
-    password: "hola",
+    username: "",
+    password: "",
   });
 
   const handleInput = (e) => {

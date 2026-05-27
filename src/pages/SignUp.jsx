@@ -6,10 +6,10 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [error, setError] = React.useState("");
   const [form, setForm] = React.useState({
-    name: "sandeep",
-    username: "sandeep",
-    password: "hola",
-    confirm_password: "hola",
+    name: "",
+    username: "",
+    password: "",
+    confirm_password: "",
   });
 
   const handleInput = (e) => {

@@ -1,18 +1,18 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { authContext } from "../context/auth-context";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from "../styles/homepage.module.css"
 
 const Home = () => {
-  const { currentUser } = useContext(authContext);
-
-  console.log({ currentUser });
   return (
     <div>
-      Home Page
-      <Link to="/about">About</Link>
-      <Link to="/notes">Notes App</Link>
+       <div className={styles.navbar}>
+        <Link className={styles.about} to="/about">About</Link>
+        <Link to="/notes">Notes App</Link>
+       </div>
+       <p className={styles.body}>This is the Home page</p>
     </div>
-  );
-};
+    
+  )
+}
 
-export default Home;
+export default Home

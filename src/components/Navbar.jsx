@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Navbar.module.css";
 import { Link } from "react-router-dom";
-import { SidebarIcon } from "lucide-react";
+import { Menu } from "lucide-react";
 import Sidebar from "./Sidebar";
 import { authContext } from "../context/auth-context";
 import { useContext } from "react";
@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.header_icon}>
-        <SidebarIcon onClick={() => setShowSidebar(true)} />
+        <Menu onClick={() => setShowSidebar(true)} />
         <Link to={"/"}>
           <h2>React Home</h2>
         </Link>

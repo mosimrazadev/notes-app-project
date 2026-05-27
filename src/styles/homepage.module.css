@@ -1,0 +1,25 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#fff;
+    padding-top: 10px;
+}
+
+.navbar a{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30vh;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
